@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Davechat"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Davechat" Height="400" Width="600">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400*"/>
+            <ColumnDefinition Width="200*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Margin="10,10,10,38" TextWrapping="Wrap" Text="" AcceptsReturn="True" IsReadOnly="True" SpellCheck.IsEnabled="True" ToolTip="Chathistory"/>
+        <TextBox Height="23" Margin="10,0,10,10" SpellCheck.IsEnabled="True" PreviewKeyDown="TextBox_PreviewKeyDown" ToolTip="Enter text here" VerticalAlignment="Bottom"/>
+
     </Grid>
 </Window>

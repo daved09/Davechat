@@ -20,11 +20,23 @@ namespace Davechat
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+
+        private networking.Networkmanager networkmanager;
 
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if((!Keyboard.IsKeyDown(Key.LeftShift)) && (!Keyboard.IsKeyDown(Key.RightShift)))
+            {
+                if (e.Key == Key.Enter)
+                {
+
+                }
+            }
         }
     }
 }
