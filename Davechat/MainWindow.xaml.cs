@@ -20,10 +20,7 @@ namespace Davechat
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        /*
-         * @Author: David Bannasch
-         */
+        
 
         public MainWindow()
         {
