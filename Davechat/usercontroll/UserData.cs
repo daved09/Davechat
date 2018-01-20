@@ -28,6 +28,10 @@ namespace Davechat.usercontroll
             Messages = new List<string>();
         }
 
+        public void addMessage(string msg)
+        {
+            Messages.Add(msg);
+        }
 
     }
 }

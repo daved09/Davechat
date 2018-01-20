@@ -58,6 +58,7 @@ namespace Davechat
         {
             txtMessage.Clear();
             txtHistory.AppendText(user.UserName + ": " + msg + Environment.NewLine);
+            user.addMessage(msg);
         }
 
         private void ChangeUserName()
@@ -71,12 +72,19 @@ namespace Davechat
 
         private void btnConnect_Click(object sender, RoutedEventArgs e)
         {
-
+            networkmanager = new networking.Networkmanager(txtIp.Text, 1234);
+            ChangeUserName();
+            networkmanager.Connect();
         }
 
         private void btnHost_Click(object sender, RoutedEventArgs e)
         {
-            ChangeUserName();
+            if (!txtIp.Text.Equals(""))
+            {
+                networkmanager = new networking.Networkmanager(txtIp.Text, 1234);
+                ChangeUserName();
+                networkmanager.StartHosting();
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
