@@ -23,10 +23,25 @@ namespace Davechat
 
         private networking.Networkmanager networkmanager;
 
+        private usercontroll.UserData user;
+
         public MainWindow()
         {
             InitializeComponent();
+            Initalize();
         }
+
+        private void Initalize()
+        {
+            user = new usercontroll.UserData();
+            RefreshUserDataToGui();
+        }
+
+        private void RefreshUserDataToGui()
+        {
+            lblUsername.Content = user.UserName;
+        }
+        
 
         private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
         {
@@ -34,9 +49,39 @@ namespace Davechat
             {
                 if (e.Key == Key.Enter)
                 {
-
+                    SendMessage(txtMessage.Text);
                 }
             }
+        }
+
+        private void SendMessage(string msg)
+        {
+            txtMessage.Clear();
+            txtHistory.AppendText(user.UserName + ": " + msg + Environment.NewLine);
+        }
+
+        private void ChangeUserName()
+        {
+            if (!txtUsername.Text.Equals(""))
+            {
+                user.UserName = txtUsername.Text;
+            }
+            RefreshUserDataToGui();
+        }
+
+        private void btnConnect_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnHost_Click(object sender, RoutedEventArgs e)
+        {
+            ChangeUserName();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            txtHistory.Clear();
         }
     }
 }
